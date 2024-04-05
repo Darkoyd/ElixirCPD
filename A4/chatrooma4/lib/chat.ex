@@ -5,10 +5,10 @@ defmodule Chat do
   def handle(channel, state) do
     message = Channel.get(channel)
     state = case message do
-      {:join, user} -> add_user(user, state)
-      {:exit, user} -> user_delete(user, state)
-      {:write, user, message} -> write_message(message, user, state)
-      {:read, user} -> read_messages(user, state)
+      {:join, user} -> add_user(state, user)
+      {:exit, user} -> user_delete(state, user)
+      {:write, user, message} -> write_message(state, user, message)
+      {:read, user} -> read_messages(state, user)
       _ -> state
     end
     handle(channel, state)
@@ -18,7 +18,8 @@ defmodule Chat do
 
 
   def add_user(state, user) do
-
+    IO.inspect(state)
+    IO.inspect(user)
     user_list = state |> Map.get(:users)
 
     if user_list |> Enum.member?(user) do

@@ -5,7 +5,7 @@ defmodule Chatrooma4 do
 
   def main do
     channel = Channel.new
-    {:ok, pid} = Task.start_link(fn -> Chat.handle(channel, %{users: [], messages: []}) end)
+    Task.start_link(fn -> Chat.handle(channel, %{users: [], messages: []}) end)
     run(channel)
   end
 
@@ -27,6 +27,7 @@ defmodule Chatrooma4 do
       "4" -> read_messages(channel)
       _ -> IO.puts("Invalid command")
     end
+    run(channel)
   end
 
   def add_user (channel) do

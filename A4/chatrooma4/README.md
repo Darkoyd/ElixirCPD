@@ -1,21 +1,29 @@
 # Chatrooma4
 
-**TODO: Add description**
+Entrega CPD A4 Nicolás Londoño
 
-## Installation
+Chatroom con CSP
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `chatrooma4` to your list of dependencies in `mix.exs`:
+## Ejecución
 
-```elixir
-def deps do
-  [
-    {:chatrooma4, "~> 0.1.0"}
-  ]
-end
+La forma más facil de ejecutar el programa es mediante usar IEx sobre la raiz del proyecto con el comando
+
+```Terminal
+iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/chatrooma4>.
+Una vez dentro de IEx, correr la siguiente linea para empezar la ejecución:
 
+```Elixir
+Chatrooma1.main
+```
+
+Debería verse el siguiente dialogo en la terminal:
+
+[Ejecución](docs/Capture.PNG "Ejecución")
+
+Paso seguido, la ejecucion sigue ingresando los números de las opciones que se desea tomar.
+
+Adicionalmente, en el modulo `Chatrooma4` se encuentran las funciones descritas en el enunciado para ser ejecutadas manualmente.
+
+Todas las funciones estan disponibles en el archivo `lib/mutexchatroom.ex`
