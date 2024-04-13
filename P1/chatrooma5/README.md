@@ -1,21 +1,29 @@
 # Chatrooma5
 
-**TODO: Add description**
+Entrega CPD A5 
 
-## Installation
+Nicolás Londoño
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `chatrooma5` to your list of dependencies in `mix.exs`:
+Andrés Florián
 
-```elixir
-def deps do
-  [
-    {:chatrooma5, "~> 0.1.0"}
-  ]
-end
+Diego Higuera
+
+Chatroom con actores
+
+## Ejecución
+
+La forma más facil de ejecutar el programa es mediante usar IEx sobre la raiz del proyecto con el comando
+
+```Terminal
+iex -S mix
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/chatrooma5>.
+Una vez dentro de IEx, correr la siguiente linea para empezar la ejecución:
 
+```Elixir
+Chatrooma5.main
+```
+
+Paso seguido, la ejecucion sigue ingresando los números de las opciones que se desea tomar.
+
+Adicionalmente, en el modulo `Chatrooma5` se encuentran las funciones descritas en el enunciado para ser ejecutadas manualmente.

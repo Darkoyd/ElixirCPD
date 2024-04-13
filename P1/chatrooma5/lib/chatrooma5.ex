@@ -1,12 +1,14 @@
 defmodule Chatrooma5 do
-  def main(chat) do
-    spawn(__MODULE__, :chat, chat)
+  def main() do
+    pid = spawn(Chat, :handle, [%{messages: [], users: []}])
+    run(pid)
+    pid
   end
 
 
   def run(channel) do
     IO.puts("--------------------------------------------------")
-    IO.puts("Welcome to the chat room manager with CSP!")
+    IO.puts("Welcome to the chat room manager with Actors!")
     IO.puts("Please enter your command: ")
     IO.puts("1. Join chatroom")
     IO.puts("2. Delete user from chatroom")
@@ -28,13 +30,13 @@ defmodule Chatrooma5 do
   def add_user (channel) do
     IO.puts("Enter your username: ")
     user = IO.gets("") |> String.trim()
-    Channel.put(channel, {:join, user})
+    send channel, {:join, user}
   end
 
   def user_delete (channel) do
     IO.puts("Enter your username: ")
     user = IO.gets("") |> String.trim()
-    Channel.put(channel, {:exit, user})
+    send channel, {:exit, user}
   end
 
   def write_message (channel) do
@@ -42,12 +44,12 @@ defmodule Chatrooma5 do
     user = IO.gets("") |> String.trim()
     IO.puts("Enter your message: ")
     message = IO.gets("") |> String.trim()
-    Channel.put(channel, {:write, user, message})
+    send channel, {:write, user, message}
   end
 
   def read_messages (channel) do
     IO.puts("Enter your username: ")
     user = IO.gets("") |> String.trim()
-    Channel.put(channel, {:read, user})
+    send channel, {:read, user}
   end
 end

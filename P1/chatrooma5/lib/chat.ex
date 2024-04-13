@@ -1,17 +1,15 @@
 defmodule Chat do
   def handle(state) do
     receive do
-      {:join, user} -> add_user(state, user)
-      {:exit, user} -> user_delete(state, user)
-      {:write, user, message} -> write_message(state, user, message)
-      {:read, user} -> read_messages(state, user)
+      {:join, user} -> handle(add_user(state, user))
+      {:exit, user} -> handle(user_delete(state, user))
+      {:write, user, message} -> handle(write_message(state, user, message))
+      {:read, user} -> handle(read_messages(state, user))
       _ -> state
     end
   end
 
   def add_user(state, user) do
-    IO.inspect(state)
-    IO.inspect(user)
     user_list = state |> Map.get(:users)
 
     if user_list |> Enum.member?(user) do
